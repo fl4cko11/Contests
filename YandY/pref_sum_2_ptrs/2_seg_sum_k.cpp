@@ -14,16 +14,16 @@ int main() {
         std::cin >> unit;
         pref_sum_arr.push_back(unit + pref_sum_arr[j-1]);
     }
-    for (int l = 0, r = 1; l < len_arr; ++r) {
-        if (pref_sum_arr[r] - pref_sum_arr[l] > sum_to_find) { // если на отрезке сумма стала больше, то дальше можно не смотреть для текщуего l
-            ++l;
-            --r; // r оставляем на месте из монотонности преф сумм (на некс иттерации вернётся в текущ)
+
+    int r = 0;
+    for (int l = 0; l < len_arr + 1; ++l) {
+        if (pref_sum_arr[r] - pref_sum_arr[l] == sum_to_find) ++count;
+        while (pref_sum_arr[r] - pref_sum_arr[l] < sum_to_find && r < len_arr + 1) {
+            ++r;
         }
-        else if (pref_sum_arr[r] - pref_sum_arr[l] == sum_to_find) { // ловим
-            ++l;
+        if (pref_sum_arr[r] - pref_sum_arr[l] == sum_to_find) {
             ++count;
         }
-        if (r == len_arr) break; // если r на конечной и разница уже меньше K, то далее не смотрим из монотонности
     }
     std::cout << count << std::endl;
     return 0;

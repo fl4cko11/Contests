@@ -17,13 +17,12 @@ int main() {
 
     std::sort(arr.begin(), arr.end());
 
-    int l = 0, r = 0;
-    while (r < len_arr) {
-        if (arr[r] - arr[l] <= k) {
-            if (r - l + 1 > max_len) max_len = r - l + 1; // от r до l
+    int r = 0;
+    for (int l = 0; l < len_arr; ++l) {
+        while (r < len_arr && arr[r] - arr[l] <= k) {
+            max_len = std::max(max_len, r + 1 - l);
             ++r;
         }
-        else ++l;
     }
     std::cout << max_len << std::endl;
     return 0;

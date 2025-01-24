@@ -14,15 +14,12 @@ int main() {
         arr.push_back(unit);
     }
 
-    int l = 0, r = 0;
-    while (r < len_arr) {
-        if (arr[r] - arr[l] > sum_to_find) { // если больше левый двигаем (правый остаётся из монотонности)
-            count += len_arr - r;
-            ++l;
-        } 
-        else {
-            ++r; // если меньше правый двигаем = ищем
+    int r = 0;
+    for (int l = 0; l < len_arr; ++l) {
+        while (arr[r] - arr[l] <= sum_to_find && r < len_arr) {
+            ++r;
         }
+        count += len_arr - r;
     }
     std::cout << count << std::endl;
     return 0;
