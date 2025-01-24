@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
-
+//a
 int main() {
     int len_arr = 0;
     int c = 0;
