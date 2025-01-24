@@ -17,15 +17,13 @@ int main() {
     for (int l = 0, r = 1; l < len_arr; ++r) {
         if (pref_sum_arr[r] - pref_sum_arr[l] > sum_to_find) { // если на отрезке сумма стала больше, то дальше можно не смотреть для текщуего l
             ++l;
-            while (pref_sum_arr[r] - pref_sum_arr[l] > sum_to_find) { // r корректируем так, чтобы начинать с первого момента где < K
-                --r;
-            }
+            --r; // r оставляем на месте из монотонности преф сумм (на некс иттерации вернётся в текущ)
         }
-        if (pref_sum_arr[r] - pref_sum_arr[l] == sum_to_find) { // ловим
+        else if (pref_sum_arr[r] - pref_sum_arr[l] == sum_to_find) { // ловим
             ++l;
             ++count;
         }
-        if (r == len_arr) break; // конец
+        if (r == len_arr) break; // если r на конечной и разница уже меньше K, то далее не смотрим из монотонности
     }
     std::cout << count << std::endl;
     return 0;
