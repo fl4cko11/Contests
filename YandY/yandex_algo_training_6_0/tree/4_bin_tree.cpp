@@ -65,6 +65,13 @@ private:
         return;
     }
 
+    void clean_memory(YandY_node *cur_node) {
+        if (cur_node->left != nullptr) clean_memory(cur_node->left);
+        if (cur_node->right != nullptr) clean_memory(cur_node->right);
+        if (cur_node != &root) cur_node;
+        return;
+    }
+
 public: 
     YandY_bin_tree(): root(){}
 
@@ -78,6 +85,10 @@ public:
 
     void PRINTTREE() {
         PRINTTREE(&root);
+    }
+
+    ~YandY_bin_tree() {
+        clean_memory(&root);
     }
 };
 
