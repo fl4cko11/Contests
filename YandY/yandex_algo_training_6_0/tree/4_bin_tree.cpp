@@ -68,7 +68,7 @@ private:
     void clean_memory(YandY_node *cur_node) {
         if (cur_node->left != nullptr) clean_memory(cur_node->left);
         if (cur_node->right != nullptr) clean_memory(cur_node->right);
-        if (cur_node != &root) cur_node;
+        if (cur_node != &root) cur_node; // корень уже на стеке был создан (сам удалится), а вот вершины через new
         return;
     }
 
