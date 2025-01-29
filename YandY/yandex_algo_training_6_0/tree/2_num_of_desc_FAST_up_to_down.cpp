@@ -4,7 +4,7 @@
 #include <vector>
 #include <algorithm>
 
-// Рекурсия до бездетных и раскрутка от них до вершины запуска с +1
+// Рекурсия до бездетных и раскрутка от них до вершины запуска с +1 (тк нет корня, запускаемся от всех вершин)
 
 int make_height(std::unordered_map<std::string, std::vector<std::string>> &parent_vec_of_child, std::unordered_map<std::string, int> &height, std::string cur_parent) {
     if (height[cur_parent] == -1) { // если ещё не заходили
@@ -37,7 +37,8 @@ int main() {
     }
 
     // Сформируем высоты -----------------------------------------------------------------------
-    std::unordered_map<std::string, std::vector<std::string>> &p_ch_v_ref = parent_vec_of_child;
+    std::unordered_map<std::string, std::vector<std::string>> parent_vec_of_child_for_func = parent_vec_of_child; // почему-то функция make height влияет на иттерацию по элементам...
+    std::unordered_map<std::string, std::vector<std::string>> &p_ch_v_ref = parent_vec_of_child_for_func;
     std::unordered_map<std::string, int> &height_ref = height;
     for (const auto& pair : parent_vec_of_child) { // иттерируем по парам словаря, а именно по ключам = РОДИТЕЛЯМ
         make_height(p_ch_v_ref, height_ref, pair.first);
