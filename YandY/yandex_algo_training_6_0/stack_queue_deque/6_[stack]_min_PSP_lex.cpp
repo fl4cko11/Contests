@@ -2,6 +2,8 @@
 #include <string>
 #include <algorithm>
 
+// на вакантной зоне строим или закрываем в зависимости от заданных отношений между скобками
+
 int main() {
     int need_len_str = 0;
     std::string br_attitude;

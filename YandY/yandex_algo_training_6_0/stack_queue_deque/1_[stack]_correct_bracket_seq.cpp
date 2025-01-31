@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 
+// стек позволяет в ревёрснутом виде проанализировать => идеально для правила расставления скобок
+
 int main() {
     std::string input_string;
     std::string stack_string;

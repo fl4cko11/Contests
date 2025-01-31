@@ -4,6 +4,8 @@
 #include <fstream>
 #include <iostream>
 
+// Пройдём по потомкам A собрав их в множестве, а потом пройдёмся от B проверяя каждый раз есть ли текущий потомок в множестве
+
 void make_ancestors_child(std::unordered_map<std::string, std::string> &child_parent, std::unordered_set<std::string> &ancestors_node, std::string cur_child) {
     if (child_parent.find(cur_child) != child_parent.end()) { // если есть предки
         ancestors_node.insert(child_parent[cur_child]); // добавляем родителя текущей и от него запускаемся

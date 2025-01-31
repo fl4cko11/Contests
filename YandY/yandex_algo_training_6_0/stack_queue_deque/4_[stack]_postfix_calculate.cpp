@@ -4,6 +4,8 @@
 #include <cctype>
 #include <algorithm>
 
+// значения в стек и при операторе берём два с верхушки в нужном порядке
+
 int main() {
     std::string postfix_expr;
     std::vector<int> stack;

@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 
+// заметим, что сумма равна сумме произведений элемента на его постфиксную и префиксную суммы
+
 int main() {
     int len_arr = 0;
     std::cin >> len_arr;

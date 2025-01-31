@@ -4,7 +4,7 @@
 #include <vector>
 #include <algorithm>
 
-// Рекурсия до бездетных и раскрутка от них до вершины запуска с +1
+// Чтобы не зациклиться в обходе с помощью меток показываем где уже были => Рекурсия до бездетных и раскрутка от них до вершины запуска с +1
 
 int make_height(std::unordered_map<int, std::vector<int>> &tree, std::unordered_map<int, int> &height, int cur_node) {
     height[cur_node] = 0; // при заходе помечаем, что были в вершине

@@ -4,7 +4,7 @@
 #include <vector>
 #include <algorithm>
 
-// Рекурсия до корня и её раскрутка с +1 от него до вершины запуска
+// Список детей позволяет до корня дойти => Рекурсия до корня и её раскрутка с +1 от него до вершины запуска
 
 int go_to_root(std::unordered_map<std::string, std::string> &child_parent, std::unordered_map<std::string, int> &dist, std::string child) {
     if (dist[child] == -1) { // если ещё не обрабатывали

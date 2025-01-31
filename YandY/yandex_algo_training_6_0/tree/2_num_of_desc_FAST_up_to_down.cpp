@@ -4,7 +4,7 @@
 #include <vector>
 #include <algorithm>
 
-// Рекурсия до бездетных и раскрутка от них до вершины запуска с +1 (тк нет корня, запускаемся от всех вершин)
+// Список родителей позволяет до бездетных дойти => Рекурсия до бездетных и раскрутка от них до вершины запуска с +1 (тк нет корня, запускаемся от всех вершин)
 
 int make_height(std::unordered_map<std::string, std::vector<std::string>> &parent_vec_of_child, std::unordered_map<std::string, int> &height, std::string cur_parent) {
     if (height[cur_parent] == -1) { // если ещё не заходили

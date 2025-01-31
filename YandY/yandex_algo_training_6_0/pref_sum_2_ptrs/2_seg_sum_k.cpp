@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 
+// двигаем правый, пока меньше, как только больше сравниваем и при сдвиге левого сравниваем
+
 int main() {
     int len_arr = 0;
     int sum_to_find = 0;
